@@ -6,4 +6,5 @@
 * [进阶知识](/highlevel/hlevel.md)
 * [测试操作](/)
 * [知识链接](/other/)
+* [软件下载](/download/download.md)
 
