@@ -13,17 +13,17 @@
   <script>
     window.$docsify = {
       name: '',
-      repo: '',
+      repo: 'https://gitee.com/wu-yulin-1/knowledge-base',
 <!-- 开启侧边栏定制，加载_sidebar.md -->
       loadSidebar:true,
 <!-- 开启目录最大层数，默认情况下每个标题都会自动添加到目录中-->
       subMaxlevel:2,
 <!--  配置 loadNavbar，默认加载的文件为 _navbar.md-->
-       loadNavbar:true,
-<!--  默认都走根路径下的 _navbar.md 文件-->
-       alias: {
-      '/.*/_navbar.md': '/_navber.md'
-    }
+      loadNavbar:true,
+<!--  默认都走根路径下的 _sidebar.md 文件-->
+      alias: { '/.*/_sidebar.md': '/_sidebar.md' }
+
+
     }
   </script>
   <script>
@@ -46,7 +46,7 @@
         }
     </script>
     <!-- docsify的js依赖 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<!--    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>-->
     <!-- emoji表情支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
     <!-- 图片放大缩小支持 -->
