@@ -1,5 +1,7 @@
 # 基础知识集合
 
+> [**Linux基础知识**](/basedata/linux_lraen.md)
+
 > [**Python**](/basedata/base_python.md)
 
 > [**数据库基础**](/basedata/datalearn.md)
