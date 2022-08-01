@@ -1,26 +1,23 @@
 # MongoDB
-
-#
-
-# 数据增加
->*  **插入单个文档：**
->    *       db.a.insert({x1:55 , x2:66 , x3:77});
->*  **一次性的往集合里插入多个文档,多个文档以数组的方式插入（中括号）：**
->    *   db.a.insert([
->    *   {name:'jack',age:19},
->    *   {name:"jim",age:20},
->    *   {name:"rose",age:18}
->    *   ]);
->*  **当给同一个字段/键/属性赋多个值的时候，取最后一个值**
+## 数据增加
+>### 插入单个文档
+>*       db.a.insert({x1:55 , x2:66 , x3:77});
+>* **一次性的往集合里插入多个文档,多个文档以数组的方式插入（中括号）：**
+>    * db.a.insert([
+>    * {name:'jack',age:19},
+>    * {name:"jim",age:20},
+>    * {name:"rose",age:18}
+>    * ]);
+>* **当给同一个字段/键/属性赋多个值的时候，取最后一个值**
 >    *       db.a.insert({m:1 , m:2 , m:3});
->*  **允许重复插入两次相同的文档，因为系统每次给文档分配不同的_id,不同的_id代表不同的文档**。
+>* **允许重复插入两次相同的文档，因为系统每次给文档分配不同的_id,不同的_id代表不同的文档**。
 >    *       db.a.insert({x:1});
 >    *       db.a.insert({x:1});
->*  **插入时可以自定义id，但是id不能重复**
+>* **插入时可以自定义id，但是id不能重复**
 >    *       db.a.insert({_id:2,x:1})
->*  insert 在插入集合时，如果集合不存在，会先创建集合
+>* insert 在插入集合时，如果集合不存在，会先创建集合
 
-# 数据删除
+>## 数据删除
 >*  **删除一条文档:**
 >    *       db 集合名 deleteOne （ {键值对 } ）
 >    *       db.product.deleteOne({item:"电脑"});
@@ -38,7 +35,7 @@
 >*  **删除字段（unset）**
 >    *   db.product.updateMany({},{$unset:{stocks:1}});
 
-# 数据修改
+## 数据修改
 >*  **文档的更新主要用到以下两个函数：**
 >    *       update({参数1},{参数2})
 >    *       updateMany({参数1},{参数2})
@@ -61,8 +58,7 @@
 >    *   字段追加stocks：
 >    *       db.product.updateMany({ },{$set:{stocks:100}})
 
-# 数据查询
-MongoDB
+## 数据查询
 >*  **文档的基础查询方式：**
 >    *   **文档格式：**
 >        *   键1 : 值1
@@ -122,7 +118,7 @@ MongoDB
 >                *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":27}}});
 >                *   可以查询出结果
 >            *   $elemMatch+不同元素的键值组合
->                *   db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":23}}});
+>                *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":23}}});
 >                *   查询不出结果
 >*  **内嵌数组的查询：**
 >    *   **文档格式：**
@@ -159,12 +155,7 @@ MongoDB
 >*  **文档数组的查询：**
 >    *   文档格式：元素是文档的数组
 >        *   db.集合名.insert（数组名：[  {文档1}，{文档2}… ] ）;
->        *   db.inventory2.insert([
-			{item:"journal",instock:[{warehouse:"A",qty:5},{warehouse:"C",qty:15}]},
-			{item:"notebook",instock:[{warehouse:"C",qty:5}]},
-			{item:"paper",instock:[{warehouse:"A",qty:60},{warehose:"B",qty:15}]},
-			{item:"planner",instock:[{warehouse:"A",qty:40},{warehouse:"B",qty:5}]},
-			{item:"postcard",instock:[{warehouse:"B",qty:15},{warehouse:"C",qty:35}]}])；
+>        *       db.inventory2.insert([{item:"journal",instock:[{warehouse:"A",qty:5},{warehouse:"C",qty:15}]},{item:"notebook",instock:[{warehouse:"C",qty:5}]},{item:"paper",instock:[{warehouse:"A",qty:60},{warehose:"B",qty:15}]},{item:"planner",instock:[{warehouse:"A",qty:40},{warehouse:"B",qty:5}]},{item:"postcard",instock:[{warehouse:"B",qty:15},{warehouse:"C",qty:35}]}])；
 >        *   例1:查询在A仓库有5个数量的商品信息：
 >            *       db.inventory2.find({instock:{warehouse:"A",qty:5}});
 >            *   如果查询的元素顺序与内嵌文档内元素的顺序不匹配，则无结果
