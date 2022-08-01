@@ -2,7 +2,7 @@
 
 [//]: #(设置侧边栏)
 * [首页](/) 
-* [知识树](/)
+* [知识树](/knowlege_tree/)
 * [测试基础知识](/basedata/base.md)
 * [进阶知识](/highlevel/hlevel.md)
 * [测试操作](/basedata/test_operation.md)
