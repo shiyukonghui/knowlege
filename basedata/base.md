@@ -20,7 +20,7 @@
 >* ## [接口测试](/basedata/interface_test.md)
 >* ## [性能测试](/basedata/)
 
-># [测试常用软件](/)
+># 测试常用软件
 >* ##  [Postman](/basedata/postman.md)
 > * ## [Jmeter](/basedata/Jmeter.md)
 > * ## [Fiddler](/basedata/fiddler.md)
