@@ -17,15 +17,28 @@
 <!-- 开启侧边栏定制，加载_sidebar.md -->
       loadSidebar:true,
 <!-- 开启目录最大层数，默认情况下每个标题都会自动添加到目录中-->
-      subMaxlevel:3,
+      subMaxlevel:2,
 <!--  配置 loadNavbar，默认加载的文件为 _navbar.md-->
       loadNavbar:true,
 <!--  默认都走根路径下的 _sidebar.md 文件-->
       alias: { '/.*/_sidebar.md': '/_sidebar.md' }
 
-
     }
   </script>
+
+<!--  字数统计-->
+  <script src="//unpkg.com/docsify-count/dist/countable.js">
+    window.$docsify = {
+    count:{
+    countable:true,
+    fontsize:'0.9em',
+    color:'rgb(90,90,90)',
+    language:'chinese'
+  }
+
+  </script>
+
+
   <script>
         // 搜索配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
         window.$docsify = {
@@ -36,7 +49,7 @@
                 // 支持本地化
                 placeholder: {
                     '/zh-cn/': '搜索',
-                    '/': 'Type to search'
+                    '/': '搜索'
                 },
                 noData: '找不到结果',
                 depth: 4,
@@ -45,7 +58,7 @@
             }
         }
     </script>
-    <!-- docsify的js依赖 -->
+    <!-- docsify的js依赖,自动生成侧边栏 -->
 <!--    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>-->
     <!-- emoji表情支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
@@ -55,7 +68,11 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+
+
 </body>
 </html>

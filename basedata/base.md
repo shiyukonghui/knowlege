@@ -10,20 +10,20 @@
 
 > [**Git 基础**](/basedata/gitlearn.md)
 
+> [**web 基础**](/basedata/web_base.md)
+
+> [**测试设计方法**](/basedata/testtheory.md)
+
+> [**Web测试**](/basedata/web_test.md)
+> * [接口测试](/basedata/)
+
 >测试常用软件
->> * Postman
->> * Jmeter
->> * Fiddler
->> * Jenkins
->> * Burp suite
+>> * [Postman](/basedata/postman.md)
+>> * [Jmeter](/basedata/Jmeter.md)
+>> * [Fiddler](/basedata/fiddler.md)
+>> * [Jenkins](/basedata/jenkins.md)
+>> * [Burp suite](/basedata/burpsuite.md)
 
 
-> 操作系统
 
-> 数字电路
 
-> 模拟电路
-
-> 数学
-
-> 物理
