@@ -1,66 +1,72 @@
 # MySQL 基础知识
 
-# 数据增
-> * 建表：
->     *  create table student(
->     *  sid int primary key,
->     *  sname varchar(20)not null,
->     *  grade int);
->     *  外键:
->         *  foreign key(sid) references 表名(sid)
-> * 查看表结构
->     *      desc 表名；
-> * 建库：
->     *      create database 库名 default character set = 'utf8'；
->       * default character set = 'utf8'必须要加上，否则可能不支持中文；
->       * use 数据库名  切换数据库
-> * 查看数据库的表
->     *      show tables；
-> * 一次插入一条数据：
->     * 格式：insert into 表名 ( 字段1, 字段2,……字段n) 
->     * values(值1,值2,……值n);
->     * 注意：最后一个字段和最后一个值后面没有逗号
->     * 全部字段，全部值一 一对应 ：
->     *     insert into student(grade,sname,sid) values(3,'lily',1);
->     * 字段可以省略不写，如果字段不写，则值的数量必须为全部字段的数量，且顺序必须和表中字段的顺序一致:
->     *      insert into student values(2,'lucy',5);
->     * 允许为空的字段，可以不写，但字段和值都要不写
->     *      insert into student(sid,sname) values(3,'Jack');
->     * 字段顺序可以调整，但值的顺序也要相应调整
->     *     insert into student(sid,sname,grade) values(4,'Jim',null);
-> * 一次插入多条数据:
->     *  insert into 表名 (字段1,字段2,……字段n)
->     *  values(值1,值2,……值n),
->     *  (值1,值2,……值n),
->     *  ……
->     *  (值1,值2,……值n);
-> * 增加表的字段
->     *  语法：alter table 表名 add 字段名 字段的数据类型;
->     *     alter table stu1 add grade varchar(10);
-> * 数据类型
->     *  整型 int
->     *  浮点型 float double decimal
->         *  decimal(16,4)
->             *  16位数字，小数部分4位
->     *  字符型 char varchar
->     *  枚举型 enum 
->         *  enum（“男”，“女”）
->     *  日期型 date datetime time 
->         *  date (YYYYMMDD)
->             *  20220925
->         *  datetime （YYYY-MM-DD HH:mm:ss）
->             *  2022-09-25 20:35:56
-> * **数据关系**
->     *  主键约束（primary key） 
->         *  主键指的是主关键字，它是表里的一个或多个字段，它的值可以唯一的标识表里的每一条记录。如果你对某个字段设置了主键约束，那么这个字段既不能为空，也不能重复。
->     *  非空约束（not null）
->         *  如果你对某个字段设置了这个约束 ，那么这个字段不能为空（null)。
->     *  唯一约束（unique） 
->         *  如果你对某个字段设置了这个约束，那么这个字段取值不能重复。
->     *  默认值约束（default 默认值）
->         *  如果你给某个字段设置了该约束，那么当你没有给该字段赋值时，它使用默认值；如果你给该字段赋值了，就使用你赋的值。
->     *  外键约束（foreign key）
->         *  如果某个字段，它在一张表里是主键，然后它又出现在另外一张表里，那么可以在另外一张表里对它设置外键约束。一旦设立了该约束，那么设置了外键约束字段的取值跟主键之间就有一个参照关系，即外键的取值要参照主键的取值
+>## 数据增加
+> ### 建表：
+>* create table student(
+>* sid int primary key,
+>* sname varchar(20)not null,
+>* grade int);
+>* 外键:
+>    * foreign key(sid) references 表名(sid)
+>
+>#### 查看表结构
+>*      desc 表名；
+>
+>### 建库：
+>*      create database 库名 default character set = 'utf8'；
+>* default character set = 'utf8'必须要加上，否则可能不支持中文；
+>* use 数据库名  切换数据库
+>
+>#### 查看数据库的表结构
+>*      show tables；
+>
+>### 一次插入一条数据：
+>* 格式：insert into 表名 ( 字段1, 字段2,……字段n) 
+>* values(值1,值2,……值n);
+>* 注意：最后一个字段和最后一个值后面没有逗号
+>* 全部字段，全部值一 一对应 ：
+>*     insert into student(grade,sname,sid) values(3,'lily',1);
+>* 字段可以省略不写，如果字段不写，则值的数量必须为全部字段的数量，且顺序必须和表中字段的顺序一致:
+>*      insert into student values(2,'lucy',5);
+>* 允许为空的字段，可以不写，但字段和值都要不写
+>*      insert into student(sid,sname) values(3,'Jack');
+>* 字段顺序可以调整，但值的顺序也要相应调整
+>*     insert into student(sid,sname,grade) values(4,'Jim',null);
+>
+>### 一次插入多条数据:
+>* insert into 表名 (字段1,字段2,……字段n)
+>* values(值1,值2,……值n),
+>  * (值1,值2,……值n),
+>  * ……
+>  * (值1,值2,……值n);
+>
+>### 增加表的字段
+>* 语法：alter table 表名 add 字段名 字段的数据类型;
+>    *     alter table stu1 add grade varchar(10);
+>### 数据类型
+>    * 整型 int
+>    * 浮点型 float double decimal
+>        *  decimal(16,4)
+>            *  16位数字，小数部分4位
+>    * 字符型 char varchar
+>    * 枚举型 enum 
+>        *  enum（“男”，“女”）
+>    * 日期型 date datetime time 
+>        * date (YYYYMMDD)
+>            *  20220925
+>        * datetime （YYYY-MM-DD HH:mm:ss）
+>            *  2022-09-25 20:35:56
+>### 数据关系
+>* 主键约束（primary key） 
+>        *  主键指的是主关键字，它是表里的一个或多个字段，它的值可以唯一的标识表里的每一条记录。如果你对某个字段设置了主键约束，那么这个字段既不能为空，也不能重复。
+>* 非空约束（not null）
+>    * 如果你对某个字段设置了这个约束 ，那么这个字段不能为空（null)。
+>* 唯一约束（unique） 
+>    * 如果你对某个字段设置了这个约束，那么这个字段取值不能重复。
+>* 默认值约束（default 默认值）
+>    * 如果你给某个字段设置了该约束，那么当你没有给该字段赋值时，它使用默认值；如果你给该字段赋值了，就使用你赋的值。
+>* 外键约束（foreign key）
+>    * 如果某个字段，它在一张表里是主键，然后它又出现在另外一张表里，那么可以在另外一张表里对它设置外键约束。一旦设立了该约束，那么设置了外键约束字段的取值跟主键之间就有一个参照关系，即外键的取值要参照主键的取值
 		
 
 # 数据删除
