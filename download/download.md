@@ -20,3 +20,4 @@
 
 # 漏洞扫描
 >* Burp suite
+>* Sqlmap

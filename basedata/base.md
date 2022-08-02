@@ -1,9 +1,11 @@
 # 基础知识集合
 
 ># [**Linux基础知识**](/basedata/linux_learn.md)
+>> * [Linux 更多知识](/basedata/Python-100-Days-master/Day31-35/31-35.玩转Linux操作系统.md)
 
-> # [**Python**](/basedata/base_python.md)
-> * ## [python 100 days](/basedata/Python-100-Days-master/)
+> # [**Python 基础**](/basedata/base_python.md)
+>> * [python 100 days](/basedata/Python-100-Days-master/)
+>> * [python 学习(菜鸟教程)](https://www.runoob.com/python3/python3-tutorial.html)
 
 > # [**数据库基础**](/basedata/datalearn.md)
 

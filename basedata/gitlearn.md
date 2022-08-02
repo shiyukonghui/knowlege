@@ -121,6 +121,8 @@
 >
 >### 从远程仓库拉取文件
 >*     git pull origin master --allow-unrelated-histories
+>  * 参数含义：
+>    * 允许不相关历史提交，并强制合并
 >* 中途需要输入日志
 >* 对其他分支没有影响
 >
