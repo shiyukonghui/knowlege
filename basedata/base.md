@@ -3,7 +3,7 @@
 ># [**Linux基础知识**](/basedata/linux_learn.md)
 
 > # [**Python**](/basedata/base_python.md)
-> * ## [python 100 days](/basedata/python_100_day_learn/)
+> * ## [python 100 days](/basedata/Python-100-Days-master/)
 
 > # [**数据库基础**](/basedata/datalearn.md)
 
