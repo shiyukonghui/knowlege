@@ -8,8 +8,9 @@
 >### [NoSQL 数据库入门](/python_knowlege/Python-100-Days-master/Day36-40/NoSQL数据库入门.md)
 
 >## 非关系型数据库
->### [MangoDB 增删改查](/database_knowlege/mangodb.md)
->
+>### [MongoDB 增删改查](/database_knowlege/mangodb.md)
+>### [MongoDB 相关性能](https://my.oschina.net/u/4087916)
+> 
 >* 特点：
 >  * 组成: 库, 集合 , 文档
 >  * 库: 多个集合
@@ -20,6 +21,7 @@
 >        *     >   $gt
 >        *     <   $lt
 >        *     =   $eq
+
 
 
 
