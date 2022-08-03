@@ -2,6 +2,7 @@
 
 >## 关系型数据库
 >### [MySQL 增删改查](/database_knowlege/mysqllearn.md)
+> ### [群英网 MySQL技术](https://www.qycn.com/xzx/2/4.html)
 >### [MySQL 详解](/python_knowlege/Python-100-Days-master/Day36-40/37.SQL详解.md) 
 >### [深入 MySQL](/python_knowlege/Python-100-Days-master/Day36-40/38.深入MySQL.md)
 >### [HiveSQL](/python_knowlege/Python-100-Days-master/Day36-40/40.大数据平台和HiveSQL.md) 

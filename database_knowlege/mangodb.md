@@ -33,7 +33,7 @@
 >### 删除集合
 >*       db.abc.drop();
 >
->### 删除数据
+>### 删除数据库
 >* 例如删除 test3：
 >* db;
 >* use test3;
@@ -51,10 +51,10 @@
 >      * 第二个参数位置放的是更新的内容
 >
 >### 更新一个文档
->    *       db.product.update({name:"猫妖传"},{$set:{price:55}});
+>*       db.product.update({name:"猫妖传"},{$set:{price:55}});
 > 
 >### 更新多个文档:
->    *       db.product.updateMany({item:"电影"},{$set:{stocks:150}});
+>*       db.product.updateMany({item:"电影"},{$set:{stocks:150}});
 > 
 >### 关键字
 >* $inc 关键字：
@@ -93,46 +93,46 @@
 >* $or:
 >    * 查询商品类型是电影票或者价格高于280的商品
 >    *       db.product.find({$or:[{item:"ticket"},{price:{$gt:280}}]});
->
+
 >### 内嵌文档的查询
->    * **文档格式：** 
->        *   键：{ 键值对1，键值对2…..键值对n}
->        *   为一个键对应多对 键 : 值
->    * **查询格式1：**
->        *       db.product.find({size:{length:75,width:50,uom:'cm'}}
->        *   不按内嵌文档录入时的顺序写就会查询不到
->    * **查询格式2：**
->        *   例子：查询商品尺寸单位是cm的商品信息
->        *       db.product.find({"size.uom":"cm"});
->        *   涉及到内嵌文档里的字段的引用，通过“.”的方式来引用，
->        *   并且需要将这个字段放在引号里
->    * 注意：
->        * 使用格式2查询时，如果有多条件，是会把每一项单独作为条件查询，只要满足一个条件即可被查询到
->        * 如果想要查询满足所有条件的项，则使用 $elemMatch
->        * 例子：示例
->            *   db.test.insert({"id":1, "members":[
->            *   {"name":"BuleRiver1", "age":27, "gender":"M"}, {"name":"BuleRiver2", "age":23, "gender":"F"}, {"name":"BuleRiver3", "age":21, "gender":"M"}
->            *   ]});
->            *       db.test.find({"members":{"name":"BuleRiver1"}});
->                *   查询的结果是空集
->            *       db.test.find({"members":{"name":"BuleRiver1", "age":27, "gender":"M"}});
->                *   完全匹配一个的时候才能获取到结果
->            *      db.test.find({"members":{"age":27, "name":"BuleRiver1", "gender":"M"}});
->                *   把键值进行颠倒,也得不到结果
->            *       db.test.find({"members.name":"BuleRiver1"});
->                *   可以查询出结果的
->            *       db.test.find({"members.name":"BuleRiver1", "members.age":27});
->                *   可以查询出结果
->            *       db.test.find({"members.name":"BuleRiver1", "members.age":23});
->                *   BuleRiver1是数组中第一个元素的键值，而23是数组中第
->                *   二个元素的键值，这样也可以查询出结果
->            *    $elemMatch+同一个元素中的键值组合
->                *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":27}}});
->                *   可以查询出结果
->            *   $elemMatch+不同元素的键值组合
->                *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":23}}});
->                * 查询不出结果
->
+>* **文档格式：** 
+>    * 键：{ 键值对1，键值对2…..键值对n}
+>    * 为一个键对应多对 键 : 值
+>* **查询格式1：**
+>    *       db.product.find({size:{length:75,width:50,uom:'cm'}}
+>    * 不按内嵌文档录入时的顺序写就会查询不到
+>* **查询格式2：**
+>    * 例子：查询商品尺寸单位是cm的商品信息
+>    *       db.product.find({"size.uom":"cm"});
+>    * 涉及到内嵌文档里的字段的引用，通过“.”的方式来引用，
+>    * 并且需要将这个字段放在引号里
+>* 注意：
+>    * 使用格式2查询时，如果有多条件，是会把每一项单独作为条件查询，只要满足一个条件即可被查询到
+>    * 如果想要查询满足所有条件的项，则使用 $elemMatch
+>    * 例子：示例
+>        *   db.test.insert({"id":1, "members":[
+>        *   {"name":"BuleRiver1", "age":27, "gender":"M"}, {"name":"BuleRiver2", "age":23, "gender":"F"}, {"name":"BuleRiver3", "age":21, "gender":"M"}
+>        *   ]});
+>        *       db.test.find({"members":{"name":"BuleRiver1"}});
+>            *   查询的结果是空集
+>        *       db.test.find({"members":{"name":"BuleRiver1", "age":27, "gender":"M"}});
+>            *   完全匹配一个的时候才能获取到结果
+>        *      db.test.find({"members":{"age":27, "name":"BuleRiver1", "gender":"M"}});
+>            *   把键值进行颠倒,也得不到结果
+>        *       db.test.find({"members.name":"BuleRiver1"});
+>            *   可以查询出结果的
+>        *       db.test.find({"members.name":"BuleRiver1", "members.age":27});
+>            *   可以查询出结果
+>        *       db.test.find({"members.name":"BuleRiver1", "members.age":23});
+>            *   BuleRiver1是数组中第一个元素的键值，而23是数组中第
+>            *   二个元素的键值，这样也可以查询出结果
+>        *    $elemMatch+同一个元素中的键值组合
+>            *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":27}}});
+>            *   可以查询出结果
+>        *   $elemMatch+不同元素的键值组合
+>            *       db.test.find({"members":{"$elemMatch":{"name":"BuleRiver1", "age":23}}});
+>            * 查询不出结果
+
 >### 内嵌数组的查询
 >* **文档格式：**
 >        *   键：[值1，值2, …… 值n ] 
@@ -165,8 +165,8 @@
 >        * and 就是判断两次,第一次 是把数组里的值循环一遍,有大于14的,通过,第二次,再循环一遍数组,有小于20的,通过,这样这个数组就被选出来了
 >        * elemMatch呢,只循环一次数组的每个值 ,但判断的时候判断两次,是 14<值<20 这样判断
 >        * 所以and 的时候 , 14 <20 ,20>14 就通过筛选了;而elemMatch呢,就是 14 !<14<20不通过,14<20 !<20 不通过,最终这个数据不通过筛选
->
-> ### 文档数组的查询
+
+>### 文档数组的查询
 >* 文档格式：元素是文档的数组
 >        *   db.集合名.insert（数组名：[  {文档1}，{文档2}… ] ）;
 >        *       db.inventory2.insert([{item:"journal",instock:[{warehouse:"A",qty:5},{warehouse:"C",qty:15}]},{item:"notebook",instock:[{warehouse:"C",qty:5}]},{item:"paper",instock:[{warehouse:"A",qty:60},{warehose:"B",qty:15}]},{item:"planner",instock:[{warehouse:"A",qty:40},{warehouse:"B",qty:5}]},{item:"postcard",instock:[{warehouse:"B",qty:15},{warehouse:"C",qty:35}]}])；
@@ -182,7 +182,7 @@
 >* 在数组内所有文档中查询：
 >    *   查询instock数组的任一元素的qty的值小于等于20的记录
 >    *       db.inventory2.find({"instock.qty":{$lte:20}}
->
+
 >### 查询特定字段
 >* 格式：find( {查询条件} ，{显示条件}  )；
 >* 显示条件：
@@ -190,7 +190,7 @@
 >    * 不显示的 字段:0
 >    * 对id 也适用
 >    * 不可以混用（除了id字段）
->
+
 >### 空值查询
 >* 查询某字段为空或者没有某个字段的文档:
 >    * 例子：

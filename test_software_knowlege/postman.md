@@ -29,7 +29,11 @@
 >*     pm.expect
 >  * 断言函数，用来生成各种断言，一个test测试函数里可以只有一个expect断言函数，也可以是多个； 如果是多个情况，所有断言函数全部通过才算测试成功，只要某一个断言函数失败，接口测试最终就失败。
 >## newman 数据驱动
->      *  newman run xxx.postman_collection.json -g 环境变量.poatman_globals.json -d 数据地址.json
->## Jenkins触发器
->      * 设置定时执行
+>*     newman run name.postman_collection.json -g 环境变量.poatman_globals.json -d 数据地址.json
+>  * name是创建的集合collections 的名称。
+## Jenkins触发器
+>* 设置定时执行
+>* 构建中选择linux shell或者windows命令行：
+>  * 触发newman 命令，实现自动化执行
+>  * newman命令要以在jenkins系统中命令行能使用的为准
 >* <img src="/img/jenkins_time.png"/>

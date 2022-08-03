@@ -19,7 +19,9 @@
 >
 >#### 查看数据库的表结构
 >*      show tables；
->
+>#### 查看当前数据库
+>*      select database();
+
 >### 一次插入一条数据：
 >* 格式：insert into 表名 ( 字段1, 字段2,……字段n) 
 >* values(值1,值2,……值n);
@@ -77,7 +79,7 @@
 >## 删除表或者表中数据
 >* 语法1：
 >   *     drop table 表名;
->   *      drop table stu1;
+>   *     drop table stu1;
 >     * 注意：**表数据和表结构一起删除**		
 >* 语法2：
 >*     delete from 表名 [ where 删除条件 ]
@@ -166,72 +168,87 @@
 >         *  使用limit m,n  m <n
 >         *   使用limit n 则默认从0开始
 				
->## 复杂查询：
->### 子查询
+>## 复杂查询
+>### 子查询(嵌套查询)
 >* 查询嵌套，指的是查询语句里又嵌套了若干个小的查询。那么子查询对应的主查询，也叫做父查询
->     * 注意：
->         *  查询要用小括号括起来；
->         *  子查询经常用在where后做条件的一部分
->         *  如果子查询返回多行，要用in进行连接，而不是=
->         *  父查询 where 字段1 中的字段1 为子查询 select 后的 字段1，即将子查询的结果作为集合给父查询作为条件
->             * 例子：
->             * select * from xsb where xh in( select xh from cjb where cj>80 );
->
->### 关联查询：
+>* 注意：
+>    * 查询要用小括号括起来；
+>    * 子查询经常用在where后做条件的一部分
+>    * 如果子查询返回多行，要用in进行连接，而不是=
+>    * 父查询 where 字段1 中的字段1 为子查询 select 后的 字段1，即将子查询的结果作为集合给父查询作为条件
+>        * 例子：
+>        * select * from xsb where xh in( select xh from cjb where cj>80 );
+
+>### 关联查询(多表查询)
 >* 通过笛卡尔积运算（将第一张表里的每一行跟第二张表里的每一行一一组合，从而生成一张大的表的过程）连接数据表
 >* 步骤：
->    *  1、**连接表：**
->        * 例子：
->        *     select * from xsb , cjb;
->    *  2、过滤垃圾数据：
->        *  通过添加关联条件的方式进行垃圾数据的过滤
->        *  **内连接:**
->            * 只返回满足关联条件的结果集
->            *      select * from xsb , cjb where xsb.xh=cjb.xh;
->            * 或者：
->            *     select * from xsb inner join cjb on xsb.xh=cjb.xh;
->        *  **外连接**
-                > *  左连接
-                >*  left join 返回满足关联条件的结果集，把left join左边的那张表完整的展示出来，右边的那张表里不满足关联条件的字段位置补空值（null）
-                > *  右连接
-                >*  right join 返回满足关联条件的结果集，把right join右边的那张表完整的展示出来，左边的那张表里不满足关联条件的字段位置补空值（null）
-                > *  全连接
-                >*  full join 返回满足关联条件的结果集，把full join两边的表完整的展示出来，两边不满足关联条件的字段位置补空值（null）
->        *  可以在连接时给表赋予别名 格式 ：表名 + 空格 + 别名 即可
->        *  注意：
-                > *  对于同名字段，我们需要在字段名前面加上表名做前缀以示区分（建议所有字段都加上表名）；
-                > *  可以通过and连接其他的条件（表的连接简写方式里），对于inner join的这种标准写法，我们把条件放在where子句里。
->    *  where,group by, having,order by ,limit用法与单表相同
->    *  多表查询可以与子查询结合
->* if 查询
->    *  格式: 
->        *  查询 if(condition,a,b) 如果condition为真，则返回a值，否则返回b值。
->    *  condition ：
->        *  大于 >
->        *  小于 <
->        *  不等于 ！=
->        *  大于等与>=
->        *  小于等与<=
->    *  例子：
->        *  select if (70<60,"不及格" , if(70<80,"良好","优秀") ) from cjb;
->    *  if 可以嵌套进行多级判断
->* case when查询
->    *  格式：
->        *   case列名 
->        *  when 条件1 then 返回值1 
->        *  when 条件2 then 返回值2 ...... 
->        *  when 条件n then 返回值n 
->        *  else返回默认值 end
->    *  例子：
->        *  select id ,class ,(case 
->        *  class when "一班" then "jwclass1" 
->        *  when "二班" then "jwclass2" 
->        *  when "三班" then "jwclass3" 
->        *  else "其他" end
->        *  ) jwclass_result from jw04_stu8; jwclass_resul
->* 查看当前数据库
->*      select database();
+>#### 连接表
+>* 例子：
+>  *     select * from xsb , cjb;
 >
+>#### 过滤垃圾数据：
+>* 通过添加关联条件的方式进行垃圾数据的过滤
+>##### 内连接
+>* 只返回满足关联条件的结果集
+>  *      select * from xsb , cjb where xsb.xh=cjb.xh and 条件2;
+>* 或者：
+>  *     select * from xsb inner join cjb on xsb.xh=cjb.xh where 条件;
+>##### 外连接
+>* 左连接
+>  * **left join** 返回满足关联条件的结果集，把left join左边的那张表完整的展示出来，右边的那张表里不满足关联条件的字段位置补空值（null）
+>* 右连接
+>  * **right join** 返回满足关联条件的结果集，把right join右边的那张表完整的展示出来，左边的那张表里不满足关联条件的字段位置补空值（null）
+>* 全连接
+>  * **full join** 返回满足关联条件的结果集，把full join两边的表完整的展示出来，两边不满足关联条件的字段位置补空值（null）
+>* 可以在连接时给表赋予别名 格式 ：表名 + 空格 + 别名 即可
+>* 注意：
+>  * 对于同名字段，我们需要在字段名前面加上表名做前缀以示区分（建议所有字段都加上表名）；
+>  * 可以通过and连接其他的条件（表的连接简写方式里），对于inner join的这种标准写法，我们把条件放在where子句里。
+>  * where,group by, having,order by ,limit用法与单表相同
+>
+>* **注意：多表查询可以与子查询结合**
+
+>## if 查询
+>* 格式: 
+>    * 查询 if(condition,a,b) 如果condition为真，则返回a值，否则返回b值。
+>* condition ：
+>    * 大于 >
+>    * 小于 <
+>    * 不等于 ！=
+>    * 大于等与>=
+>    * 小于等与<=
+>* 例子：
+>    * select if (70<60,"不及格" , if(70<80,"良好","优秀") ) from cjb;
+>* if 可以嵌套进行多级判断
+>
+>## case when查询
+>* 格式：
+>    * case列名 
+>    * when 条件1 then 返回值1 
+>    * when 条件2 then 返回值2 ...... 
+>    * when 条件n then 返回值n 
+>    * else返回默认值 end
+>* 例子：
+>    * select id ,class ,(case 
+>    * class when "一班" then "jwclass1" 
+>    * when "二班" then "jwclass2" 
+>    * when "三班" then "jwclass3" 
+>    * else "其他" end
+>    * ) jwclass_result from jw04_stu8; jwclass_resul
+
+>## 查询结果去重
+>* distinct去重关键字（要去重的字段要放在第一个）
+>  * 多字段重复时只去除完全相同的，例如：
+>    *     SELECT distinct university from user_profile
+>* group by 按照要去重的字段分组
+>  *     SELECT  university from user_profile group
+>* union操作符合并两个结果集会自动去除重复元素
+>  *     SELECT  university from user_profile union SELECT  university from user_profile 
+ 
+># SQL 性能优化
+>## 添加索引
+
+> 
 >## [常见错误](./mysql_error_log.md)
 						
 					
