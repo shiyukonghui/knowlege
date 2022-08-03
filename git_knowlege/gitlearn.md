@@ -133,4 +133,7 @@
 >
 >### 克隆仓库
 >*     git clone + 远程仓库地址
+>
+>### 同时提交到gitee 和 github
+>* [参考](https://blog.csdn.net/weixin_44893902/article/details/125147574)
 				
