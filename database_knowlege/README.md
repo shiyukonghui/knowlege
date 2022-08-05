@@ -23,6 +23,9 @@
 >        *     <   $lt
 >        *     =   $eq
 
+> ## 缓存数据库
+> ### [redis 入门](redis_knowlege.md)
+
 
 
 

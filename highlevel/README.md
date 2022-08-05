@@ -1,9 +1,9 @@
 # 进阶知识
 
 ># 深入理解操作系统
+>* [操作系统实战](/highlevel/system_learn.md)
 >* CPU
->>* [CPU模式](/highlevel/cpu_mode.md) 
->
+>>* [CPU模式](/highlevel/cpu_mode.md)
 >* 锁
 >* 进程
 >>* [python 多线程和多线程](/python_knowlege/Python-100-Days-master/Day01-15/13.进程和线程.md)
