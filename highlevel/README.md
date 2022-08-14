@@ -6,7 +6,7 @@
 >>* [CPU模式](/highlevel/cpu_mode.md)
 >* 锁
 >* 进程
->>* [python 多线程和多线程](/python_knowlege/Python-100-Days-master/Day01-15/13.进程和线程.md)
+>>* [python 多线程和多线程](/python_knowledge/Python-100-Days-master/Day01-15/13.进程和线程.md)
 >>* [进程调度](/highlevel/Process_scheduling.md) 
 >* 内存
 >* IO
