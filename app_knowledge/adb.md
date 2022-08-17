@@ -49,9 +49,9 @@
 >### adb shell 
 >#### 进入android系统再执行命令
 >#### adb shell + 命令，直接执行命令
->   * adb shell screencap -p /sdcard/screen.png 屏幕截图
->   * adb shell screenrecord 地址  录屏
->      * ctrl + c 停止
+>* adb shell screencap -p /sdcard/screen.png 屏幕截图
+>* adb shell screenrecord 地址  录屏
+>   * ctrl + c 停止
 
 >##### adb shell am 系列(am 代表activity manager 活动管理)
 >* start 包名/activity名 启动应用
@@ -64,10 +64,10 @@
 >* list features 列出手机硬件信息
 
 >##### adb shell input 系列
->   * adb shell input keyevent 编号 - 模拟手机常用按键  ，编号-->百度搜索：android keycode
->   * adb shell input swipe x1 y1 x2 y2 - 手机滑动屏幕，adb shell wm size
->   * adb shell input text 内容 - 在控件中输入信息
->   * adb shell input tap x y - 在某个坐标点击，坐标查看：夜神模拟器：开发者选项---->打开“显示点按操作反馈”，“指针位置”
+>* adb shell input keyevent 编号 - 模拟手机常用按键  ，编号-->百度搜索：android keycode
+>* adb shell input swipe x1 y1 x2 y2 - 手机滑动屏幕，adb shell wm size
+>* adb shell input text 内容 - 在控件中输入信息
+>* adb shell input tap x y - 在某个坐标点击，坐标查看：夜神模拟器：开发者选项---->打开“显示点按操作反馈”，“指针位置”
 
 
 >### adb logcat 查看系统日志缓冲区信息

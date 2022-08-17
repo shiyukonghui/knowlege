@@ -245,10 +245,33 @@
 >* union操作符合并两个结果集会自动去除重复元素
 >  *     SELECT  university from user_profile union SELECT  university from user_profile 
  
-># SQL 性能优化
->## 添加索引
+>## SQL 性能优化
+>### 添加索引
 
-> 
+>## 关系代数
+>* 特点:
+>  * 关系代数是由union、intersection、join等运算符和关系实例组成的。
+>### 基础运算符
+>* 这五个基础运算符能派生出其他组合运算符。它们分别是：
+>  * 选择（σ， selection）、投影（π， projection）、叉乘（x， cross-product）、>* 差（-, set-difference）和并（υ, union）
+>* 它们和SQL语句的对应关系为：
+>* 选择（σ， selection）相当于SQL语句中的where，表示选出满足一定条件的行。
+>  * 如：σ rating>8 (S2）相当于 select * from S2 where rating>8;
+>* 投影（π， projection）相当于SQL语句中的select。。。distinct， 表示选择哪些列。注意：投影是会去重的！
+>  * 如：π sname,rating (σ rating>8 (S2）)相当于 select sname, rating from S2 where rating>8;
+>* 叉乘（x， cross-product）相当于SQL语句中的from，表示穷举所有集合两边元素的组合量
+>  * 如: AxB 相当于 select * from A, B;  注意：叉乘时两个集合不能有重名列
+>* 差（-, set-difference）R-S返回所有在R中而不在S中的元组
+>* 并（υ, union）RυS返回包含在R中或在S中的所有元组
+>* 交(∩, intersection) R∩S返回既在R中又在S中的元组。
+>* 注意：并、交、差都要求两个关系实例是并相容的。 并相容指：1. 两个关系实例字段数相同 2. 对应字段类型、取值范围相同
+>
+>### 合成运算符：
+>* 合成运算符是由基础运算符组合派生而来的，算是一种速记标志。
+>* 自然连接(⋈， natural join)相当于先做叉乘，再选择公共属性一样的关系实例。如果没有公共属性的话，那么结果就是叉乘
+>* 除（÷， division）r÷s， 返回r中包含与s共有列但其他列不同的关系实例。
+
+
 >## [常见错误](./mysql_error_log.md)
 						
 					

@@ -2,7 +2,8 @@
 * 入门
   * [快速开始](/setting/quickstart.md)
   * [封面](/setting/_coverage.md)
-  * [资助](/setting/wx_money.md)
+
+[//]: # (  * [资助]&#40;/setting/wx_money.md&#41;)
 * 配置
   * [主题](/setting/themes.md)
   * [代码高亮](/setting/language-highlight.md)
