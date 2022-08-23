@@ -34,7 +34,7 @@
 
 
 
-<a href="https://beian.miit.gov.cn/" target="_blank">备案号:桂ICP备2022007542号-1</a>
+
 
 
 
