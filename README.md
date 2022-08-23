@@ -27,6 +27,20 @@
 
 
 
+<div style="position:fixed;bottom:30px;left:400px">
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=45033202000040" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+      <img src="/备案图标.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">桂公网安备 45033202000040号</p></a>
+    <a target="_blank" href="https://beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+      <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;"> 桂ICP备2022007542号-1</p></a>
+</div>
+
+
+
+
+
+
+
+
 
 
 
