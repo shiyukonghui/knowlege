@@ -53,7 +53,7 @@
 >  *     git reset --hard "hash码"
 >* **文件恢复**
 >    * 场景一：文件修改错误，没有进入暂存区，没有执行git add
->        *     git checkout -- 文件名
+>        *     git checkout -- 文件名gi
 >        * （从本地仓库拉取最新文件覆盖错误文件）
 >    * 场景二：文件修改错误，进入了暂存区，没有执行git commit
 >        *     git reset HEAD 文件名 （撤销暂存区）
